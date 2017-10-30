@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Filter Vuejs</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <div class="app" id="app">
+  <h1 v-html="title"></h1>
+  <h2 v-html="message"></h2>
+
+  <div class="fields">
+    <input type="text" id="input" v-on:keypress.enter='addItem'>
+    <button v-on:click='addItem' class="addItem">Adicionar</button>
+  </div>
+ 
+  <ul class="list">
+    <li v-for='(item, index) in filtered' 
+        v-bind:class="[{ checked: item.checked }, {editing: item.edit}]">
+
+      <input type="checkbox" v-bind:id="index"
+             v-model="item.checked"
+             v-on:change='addStorage'
+             class="inputCheck">
+      
+      <label v-bind:for="index" class="checkItem"></label>
+      
+      <span v-on:dblclick="openInput(index, $event)">{{item.fruta}}</span>
+      
+      <input v-on:keypress.enter="editItem(index, $event)" 
+             v-on:keyup.esc="closeInput(index)"
+             v-on:blur="closeInput(index)"
+             id="editItem" class="editItem cancelItem"
+             v-bind:value="item.fruta">
+      
+      <button v-on:click='deleteItem(index)' 
+              class="deleteItem">X</button>
+    </li>
+  </ul>
+  <div class="list filter" v-if="remaining">
+    <span class="remaining">{{remaining}} item(s)</span>
+    <button @click="all">All</button>
+    <button @click="active">Active</button>
+    <button @click="completed">Completed</button>
+  </div>
+</div>
+
+
+<!-- <h1>YOU HAVE A ISSUE</h1> -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
+
+    <script  src="js/index.js"></script>
+
+</body>
+</html>

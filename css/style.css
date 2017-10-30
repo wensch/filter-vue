@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css?family=Indie+Flower");
+html,
+body {
+  background-color: #ff6347;
+  margin: 0;
+  font-family: 'Indie Flower', cursive;
+}
+button {
+  cursor: pointer;
+  border: 0;
+  text-transform: uppercase;
+  font-family: 'Indie Flower', cursive;
+  color: #fff;
+  outline: 0;
+}
+.addItem {
+  color: #560d00;
+  padding: 15px;
+  border: solid 2px #560d00;
+  font-weight: bold;
+  background-color: transparent;
+  font-size: 20px;
+}
+.deleteItem {
+  background-color: #f00;
+  font-size: 16px;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+.checkItem {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  border: solid 2px;
+}
+.editItem {
+  display: none;
+}
+.remaining {
+  font-size: 18px;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 780px;
+  margin: 15vh auto 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+  opacity: 0;
+}
+.app h1 {
+  color: #560d00;
+  font-size: 70px;
+  margin: 0;
+}
+.app h2 {
+  color: #560d00;
+  font-size: 45px;
+  margin: 0;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+.app .fields {
+  text-align: center;
+  width: 100%;
+}
+.app input {
+  width: 100%;
+  border: 0;
+  background-color: rgba(0,0,0,0.16);
+  font-size: 25px;
+  font-family: 'Indie Flower', cursive;
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 10px 0;
+  outline: 0;
+}
+.app input[type="checkbox"] {
+  display: none;
+}
+.app input[type="checkbox"]:checked + .checkItem {
+  background: #000;
+}
+.app input[type="checkbox"]:checked + span {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+.app ul {
+  padding-left: 0;
+  margin-top: 40px;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+  width: 100%;
+}
+.app ul.animated {
+  opacity: 1;
+}
+.app li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 25px;
+  border-bottom: 1px solid #d6533c;
+}
+.app li.checked span {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+.app li.editing .editItem {
+  display: block;
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+.app li.editing span {
+  display: none;
+}
+.app li button {
+  margin-left: 20px;
+}
+.filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+.filter button {
+  box-sizing: border-box;
+  color: #560d00;
+  padding: 10px;
+  border: solid 2px #560d00;
+  font-weight: bold;
+  background-color: transparent;
+  font-size: 14px;
+  margin-right: 20px;
+}
+.filter button:last-child {
+  margin-right: 0;
+}
+.filter span {
+  position: absolute;
+  left: 0;
+}
